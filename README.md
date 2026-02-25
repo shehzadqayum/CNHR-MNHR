@@ -67,9 +67,9 @@ Platform-reported "hourly rates" use only the time the driver has a passenger in
 
 ### 3. The Binding Constraint Is Hours, Not Trip Quality
 
-The framework's variance decomposition reveals a counterintuitive finding: **90.7% of week-to-week variation in net hourly rate comes from how many hours the driver works, not from the quality of individual trips.** The gross hourly rate is relatively stable (CV ≈ 13%); the cost rate is highly volatile (CV ≈ 58%) because it is inversely proportional to hours.
+The framework's variance decomposition reveals a counterintuitive finding: **over 90% of week-to-week variation in net hourly rate comes from how many hours the driver works, not from the quality of individual trips.** The gross hourly rate is relatively stable (CV ≈ 15%); the cost rate is highly volatile (CV ≈ 90%) because it is inversely proportional to hours.
 
-A driver obsessing over individual trip quality addresses 2.9% of their earnings variance. Working an additional five hours per week addresses 90.7%.
+A driver obsessing over individual trip quality addresses under 3% of their earnings variance. Working an additional five hours per week addresses the dominant source. Across 13 weeks, gross ρ̄ ranges only from £28.51 to £45.67 (1.6× spread), while hours range from 4.16h to 39.78h (9.6× spread). The cost rate, not the revenue rate, determines weekly outcomes.
 
 ### 4. Every Trip Has a Directional Signal
 
@@ -113,7 +113,7 @@ What the CNHR–MNHR framework contributes beyond these established systems:
 | MNHR directional theorem | Trucker's informal break-even check | Mathematical identity with 92.5% predictive accuracy via EMA |
 | Dual-track time accounting | Aviation block/airborne hours | Continuous real-time tracking with exact utilisation coefficient |
 | Four-state diagnostic matrix | Fleet KPI dashboards | Level + momentum combined with decision mapping |
-| Variance decomposition | Industry volume intuition | Formal proof: 90.7% from cost rate, 2.9% from gross rate |
+| Variance decomposition | Industry volume intuition | Formal proof: hours dominate, not trip quality |
 | AM–GM volatility measure | No equivalent | Model-free rate consistency metric with economic interpretation |
 
 Within single-agent operational optimisation under partial information, the framework is more rigorous than anything documented in rideshare literature or comparable owner-operator sectors.
@@ -129,7 +129,7 @@ Within single-agent operational optimisation under partial information, the fram
 | Dual-track time accounting (paid vs true) | Modelling of platform dispatch algorithms |
 | Cost decomposition across vehicle regimes | Risk-sensitive objective functions |
 | Four-state diagnostic classification | Causal inference on driver–platform interactions |
-| Cross-segment comparison (time-of-day, zone) | Multi-platform aggregation |
+| Cross-segment comparison (time-of-day, zone, service type) | Multi-platform aggregation |
 
 The framework is **observationally closed but causally open**: it evaluates any realised trip sequence exactly, but does not model how driver actions shape future offer distributions. This is a deliberate architectural choice — the platform's dispatch algorithm is unobservable, non-stationary, and possibly personalised. Any model of platform response would be speculative. The framework's strength is that it operates purely on observables.
 
@@ -141,17 +141,24 @@ All parameters are calibrated from operational data, not theoretical assumptions
 
 | Metric | Value |
 |---|---|
-| Total trips | 635+ |
-| Uber weeks | 12 |
+| Total trips | 628 |
+| Uber weeks | 13 (12 complete + 1 in progress) |
 | Period | December 2025 – February 2026 |
 | Platform | Uber (London, UK) |
 | Vehicle | Kia e-Niro EV (PHV) |
 | Typical shift | 19:00–07:00 (night) |
-| Mean utilisation | 66% |
-| Mean enroute time | 15.8 min/trip |
+| Mean gross ρ̄ | £32.77/hr (CV 14.7%) |
+| Mean portal hours | 22.15h/week (CV 48.5%) |
+| Mean cost rate λ | £28.26/hr (CV 89.8%) |
 | Weekly fixed cost | £430 (hire regime) |
 | EMA smoothing factor | α = 0.15 |
 | Directional accuracy | 92.5% |
+| Hours for r*=£15 | 24.2h/week at mean ρ̄ |
+| Hours for break-even | 13.1h/week at mean ρ̄ |
+
+Service-type distribution: UberX 51%, Electric 43%, Comfort 4%, UberX Priority 2%. Comfort yields the highest gross rate (£37.96/hr) but lowest volume. UberX and Electric perform near-identically at £32.31 and £32.01/hr respectively.
+
+Weeks reaching break-even (rₙ ≥ 0): 8 of 13. Weeks reaching target (rₙ ≥ r*=£15): 6 of 13. The six profitable weeks all logged 23+ portal hours, confirming the binding constraint theorem. No week below 15 portal hours reached break-even.
 
 ---
 
@@ -182,6 +189,7 @@ The complete specification (48 pages) is organised into eleven parts plus append
 |---|---|
 | `CNHR_MNHR_Formal_Specification.pdf` | Complete specification (48 pages) |
 | `CNHR_MNHR_Formal_Specification.md` | Full Markdown version |
+| `CNHR_MNHR_Dashboard_v2.2.html` | Interactive dashboard (13 weeks, 628 trips, self-contained) |
 
 ---
 
