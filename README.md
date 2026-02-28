@@ -189,7 +189,7 @@ The complete specification (48 pages) is organised into eleven parts plus append
 |---|---|
 | [`CNHR_MNHR_Formal_Specification.pdf`](https://github.com/shehzadqayum/CNHR-MNHR/blob/main/CNHR_MNHR_Formal_Specification.pdf) | Complete specification (48 pages) |
 | [`CNHR_MNHR_Formal_Specification.md`](https://github.com/shehzadqayum/CNHR-MNHR/blob/main/CNHR_MNHR_Formal_Specification.md) | Full Markdown version |
-| [`CNHR_MNHR_Dashboard_v2.2.html`](https://shehzadqayum.github.io/CNHR-MNHR/CNHR_MNHR_Dashboard_v2.3.html) | Interactive dashboard (13 weeks, 628 trips, self-contained) |
+| [`CNHR_MNHR_Dashboard_v2.3.html`](https://shehzadqayum.github.io/CNHR-MNHR/CNHR_MNHR_Dashboard_v2.3.html) | Interactive dashboard (13 weeks, 628 trips, self-contained) |
 
 ---
 
